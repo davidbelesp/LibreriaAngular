@@ -1,0 +1,86 @@
+<div class=" p-5 flex flex-column">
+  <div class="p-3">
+    <h2 class="m-0">Crear Libro</h2>
+  </div>
+  <div class="flex flex-column gap-4 formulario md:flex-row xl:flex-row">
+
+    <img class="" [src]="url || '/assets/logo_white.png'" alt="" style="min-width: 30%; max-height: 30%;">
+
+    <form [formGroup]="myForm" autocomplete="off" (ngSubmit)="onSave()" class="formgrid grid">
+      <div class="field col-12">
+        <label for="isbn">ISBN</label>
+        <input id="isbn" type="text" formControlName="isbn"
+          [ngClass]="myForm.controls['isbn'].errors != null && myForm.controls['isbn'].touched ? 'invalid' : ''"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+      </div>
+
+      <div class="field col-12 md:col-6">
+        <label for="titulo">Título</label>
+        <input id="titulo" formControlName="titulo" type="text"
+          [ngClass]="myForm.controls['titulo'].errors != null && myForm.controls['titulo'].touched ? 'invalid' : ''"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+      </div>
+      <div class="field col-12 md:col-6">
+        <label for="autor">Autor</label>
+        <input id="autor" formControlName="autor" type="text"
+          [ngClass]="myForm.controls['autor'].errors != null && myForm.controls['autor'].touched ? 'invalid' : ''"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+      </div>
+      <div class="field col-12 md:col-6">
+        <label for="edicion">Edicion</label>
+        <select id="edicion"
+        formControlName="edicion"
+        [ngClass]="myForm.controls['edicion'].errors != null && myForm.controls['edicion'].touched ? 'invalid' : ''"
+
+        class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary"
+        style="appearance: auto">
+        <option value="" disabled selected>Seleccionar</option>
+        <option *ngFor="let edicion of ediciones">{{edicion.Tipo}}</option>
+      </select>
+      </div>
+      <div class="field col-12 md:col-6">
+        <label for="tema">Tema</label>
+        <select id="tema"
+          formControlName="tema"
+          [ngClass]="myForm.controls['tema'].errors != null && myForm.controls['tema'].touched ? 'invalid' : ''"
+          class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary"
+          style="appearance: auto">
+          <option value="" disabled selected>Seleccionar</option>
+          <option *ngFor="let tema of temas">{{tema.Tipo}}</option>
+        </select>
+      </div>
+      <div class="field col-12">
+        <label for="url">URL Portada</label>
+        <input id="url" formControlName="url" type="text"
+          (input)="setUrl($event)"
+          [ngClass]="myForm.controls['url'].errors != null && myForm.controls['url'].touched ? 'invalid' : ''"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+      </div>
+      <div class="field col-6 md:col-3">
+        <label for="formato">Formato</label>
+        <select id="formato" formControlName="formato"
+          [ngClass]="myForm.controls['formato'].errors != null && myForm.controls['formato'].touched ? 'invalid' : ''"
+          class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary"
+          style="appearance: auto">
+          <option value="" disabled selected>Seleccionar</option>
+          <option *ngFor="let formato of formatos">{{formato.Tipo}}</option>
+        </select>
+      </div>
+      <div class="field col-6 md:col-3">
+        <label for="cantidad">Cantidad</label>
+        <input id="cantidad" formControlName="cantidad" type="number" value="0" min="0"
+          [ngClass]="myForm.controls['cantidad'].errors != null ? 'invalid' : ''"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+      </div>
+      <div class="field col-6 md:col-3">
+        <label for="zip">Precio</label>
+        <input id="zip" type="number" min="0" value="0" formControlName="precio"
+          [ngClass]="myForm.controls['precio'].errors != null ? 'invalid' : ''"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+      </div>
+      <div class="field col-6 md:col-3 flex justify-content-end align-items-center" style="align-content: bottom">
+        <p-button type="submit">Enviar</p-button>
+      </div>
+    </form>
+  </div>
+</div>

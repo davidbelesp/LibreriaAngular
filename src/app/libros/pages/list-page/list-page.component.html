@@ -1,0 +1,11 @@
+<div class=" p-5 flex flex-column">
+  <div class="p-3 flex justify-content-between align-items-center">
+    <h2 class="m-0">Libros</h2>
+
+    <p-button [routerLink]="['../create']" routerLinkActive="router-link-active" icon="pi pi-plus" [rounded]="true"></p-button>
+
+  </div>
+  <div class="flex flex-wrap overflow-hidden min-w-min justify-content-around">
+      <libros-card-libro class="col-12 sm:col-5 md:col-4 lg:col-3 xl:col-3 overflow-hidden" [libro]="libro" *ngFor="let libro of libros" ></libros-card-libro>
+  </div>
+</div>

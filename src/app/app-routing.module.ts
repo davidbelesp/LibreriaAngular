@@ -1,30 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { HomeComponent } from './shared/pages/home/home.component';
+import { Error404Component } from './shared/pages/error404/error404.component';
 
 const routes: Routes = [
-
-  {
-    path: "libros",
-    loadChildren: () => import("./pages/libros/libros.module").then( m => m.LibrosModule)
-  },
-  {
-    path: "autores",
-    loadChildren: () => import("./pages/autores/autores.module").then( m => m.AutoresModule)
-  },
-  {
-    path: "404",
-    component: NotFoundComponent
-  },
-  {
-    path: "",
-    redirectTo: "libros"
-  },
-  {
-    path: "**",
-    redirectTo: "404"
-  },
-
+  {path:'', component: HomeComponent},
+  {path:'home', component: HomeComponent},
+  {path:'libros', loadChildren: ()=> import('./libros/libros.module').then( m=> m.LibrosModule)},
+  {path:'autores', loadChildren: ()=> import('./autor/autor.module').then( m=> m.AutorModule)},
+  {path:'temas', loadChildren: ()=> import('./tema/tema.module').then( m=> m.TemaModule)},
+  {path:'ediciones', loadChildren: ()=> import('./edicion/edicion.module').then( m=> m.EdicionModule)},
+  {path:'formatos', loadChildren: ()=> import('./formato/formato.module').then( m=> m.FormatoModule)},
+  {path:'404', component: Error404Component},
+  {path:'**', redirectTo:'404'},
 ];
 
 @NgModule({

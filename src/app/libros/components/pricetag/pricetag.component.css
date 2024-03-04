@@ -1,0 +1,7 @@
+.pricetag{
+  background-color: #1c483b;
+  font-weight: bold;
+  border-radius: 14px;
+  padding: 12px;
+  max-width: fit-content;
+}

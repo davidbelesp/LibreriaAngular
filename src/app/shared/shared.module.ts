@@ -1,24 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenuComponent } from './menu/menu.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { MenubarComponente } from './menubar/menubar.component';
+import { SearchboxComponent } from './searchbox/searchbox.component';
+import { PrimeNGModule } from '../primeng/prime.module';
+import { HomeComponent } from './pages/home/home.component';
+import { Error404Component } from './pages/error404/error404.component';
+import { LazyImageComponent } from './components/lazy-image/lazy-image.component';
 
 
 
 @NgModule({
   declarations: [
-    MenuComponent,
-    SidebarComponent,
-    NotFoundComponent
+    MenubarComponente,
+    SearchboxComponent,
+    HomeComponent,
+    Error404Component,
+    LazyImageComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PrimeNGModule
   ],
   exports:[
-    MenuComponent,
-    SidebarComponent,
-    NotFoundComponent
+    MenubarComponente,
+    HomeComponent,
+    Error404Component,
+    LazyImageComponent,
+
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,14 @@
+<p-card [header]="(libro.Titulo | slice:0:19 ) + (libro.Titulo.length > 19 ? '...' : '')" [subheader]="libro.Autor" class="p-0 min-w-min libro-card">
+  <ng-template pTemplate="header">
+    <shared-lazy-image [url]="libro.URL" [name]="libro.Titulo || 'unknown'"></shared-lazy-image>
+  </ng-template>
+  <p-chip [label]="libro.Tema" class="mr-2"></p-chip>
+
+  <p-footer class="flex gap-1 justify-content-between flex-wrap">
+    <card-pricetag [precio]="libro.Precio"></card-pricetag>
+    <p-button
+    icon="pi pi-info-circle"
+    [routerLink]="'/libros/libro/'+libro.ISBN"
+    class="flex align-items-center"></p-button>
+  </p-footer>
+</p-card>
