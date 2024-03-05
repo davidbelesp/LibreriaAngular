@@ -35,6 +35,9 @@ export class TemaService implements IService<Tema, string>{
     throw new Error('Method not implemented.');
   }
   create(t: Tema): Observable<Tema | null> {
-    throw new Error('Method not implemented.');
+    console.log({id:1000,name:t})
+    return this.http.post<Tema>(`${this.baseURL}/${this.endPoint}`, {id:1,name:t}).pipe(
+      catchError( () => of(null))
+    );
   }
 }

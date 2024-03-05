@@ -3,6 +3,11 @@
 
 }
 
+.invalid
+{
+  border: 2px solid red !important;
+}
+
 .app-main{
   min-height: 100vh;
   max-width: 100vw;

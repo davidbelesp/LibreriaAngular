@@ -22,9 +22,14 @@
       </div>
       <div class="field col-12 md:col-6">
         <label for="autor">Autor</label>
-        <input id="autor" formControlName="autor" type="text"
-          [ngClass]="myForm.controls['autor'].errors != null && myForm.controls['autor'].touched ? 'invalid' : ''"
-          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        <select id="autor"
+        formControlName="autor"
+        [ngClass]="myForm.controls['autor'].errors != null && myForm.controls['autor'].touched ? 'invalid' : ''"
+        class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary"
+        style="appearance: auto">
+        <option value="" disabled selected>Seleccionar</option>
+        <option *ngFor="let autor of autores">{{autor.Nombre}}</option>
+      </select>
       </div>
       <div class="field col-12 md:col-6">
         <label for="edicion">Edicion</label>

@@ -1,3 +1,19 @@
-<h1>Temas</h1>
+<div class="p-3 flex justify-content-between align-items-center">
+  <h1>Género</h1>
+  <div class="flex justify-content-between" >
+    <div class=" flex flex-row justify-content-end gap-4 align-items-center">
+      <form action="" [formGroup]="myForm">
+        <label for="newTema">Nuevo Tema</label>
+        <input id="newTema" formControlName="newTema" type="text"
+        [ngClass]="myForm.controls['newTema'].errors != null && myForm.controls['newTema'].touched ? 'invalid' : ''"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </form>
+        <button (click)="saveTema()">Guardar</button>
+
+    </div>
+  </div>
+</div>
 <hr>
 <router-outlet></router-outlet>
+<hr>
+
